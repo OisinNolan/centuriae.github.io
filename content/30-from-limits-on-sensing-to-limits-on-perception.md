@@ -9,7 +9,7 @@ retreat: 3
 ### Introduction
 Sensing is a prerequisite for intelligent behavior, serving as the interface between external and internal worlds. In this essay, I analyze some basic concepts describing *limits* on sensing, and describe a re-framing grounded in information theory to identify situations where we can overcome those limits.
 
-### Sensing and Perception
+### Sensing and perception
 First, I'll introduce two terms that we'll use throughout the essay: *sensing* and *perception*. Let's define sensing as the act of measuring some physical process that exists out in the world. Imagine one or more sensors that record signals from the environment at certain points in time and space. We'll refer to this raw sensor data as $X$. Let's then define perception as a kind of superset of sensing, where we measure some raw signals from our sensors, but then also include a processing layer on top to infer some quantity of interest $Y$ that is meaningful to us. In the case where the raw sensor data _is_ already the quantity of interest and processing is unnecessary, perception would then amount to sensing. In general, though, we can imagine that the perception step may perform arbitrary computation as a layer on top of sensing. An important consequence of this definition is that it permits a *prior* on $Y$. In other words, we can use prior knowledge and theory to infer more about $Y$ than might be available from measurements alone.
 
 ### What is the aim of sensing?
@@ -34,13 +34,10 @@ Next let's consider another limit on sensing, this time from the world of imagin
 $\theta \propto \frac{\lambda}{D}$
 where either decreasing our wavelength $\lambda$ or increasing our aperture size $D$ will give us finer resolution $\theta$. The problem with this limit is that it ignores the role of computation in perception. If the PSF is known, perception becomes an inverse problem: infer the most likely underlying scene from the observed image. Again, strong priors on $Y$ and accurate forward models enable us to go far beyond the diffraction limit, as explored in the field of *super-resolution microscopy*, among others.
 
-### Closing Thoughts & Open Questions
+### Closing thoughts & open questions
 I have argued here that we should situate sensing problems within the broader goal of perception, and view the limiting factors first and foremost in information-theoretic terms. The key insight offered by this framing is that *we can trade information gained by our sensing system for prior information or superior algorithms* -- a design principle which can hopefully guide us toward more cost-efficient sensing systems.
 
 I will conclude with some open questions, which may end up making their way into the main essay in future iterations:
 - Exact Bayesian inference is often intractable, especially for high-dimensional signals like images or videos. How does the information gained by approximate inference algorithms relate to the mutual information? Can we understand this as an instance of bounded rationality, leading to an understanding of how compute can be traded for sensing hardware?
 - Can we make some assumptions about the nature of the relationship between $P$ and $Y$? For example, $Y$ may be a function of $P$ but not of $X$, or $Y$ and $P$ may both be a function of some common causal ancestor. Do these situations enable some interesting information-theoretic analysis?
 - What role does the *forward model* $p(X | Y=y)$ play in this? What about under a sim-to-real gap?
-
-#### Remaining todos, for future iteration
-- The diffraction limit example could do with some fleshing out / nuance.
